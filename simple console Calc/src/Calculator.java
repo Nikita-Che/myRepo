@@ -45,7 +45,7 @@ public class Calculator {
             return a - b;
         } else if (expression.contains("*")) {
             if (b == 10) {
-                throw new BusinessException("нельзя умножать на 10, это принцип.");
+                throw new BusinessException("нельзя умножать на 10, это принцип!.");
             }
             return a * b;
         } else if (expression.contains("/")) {
