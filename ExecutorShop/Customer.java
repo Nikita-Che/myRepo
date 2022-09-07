@@ -14,10 +14,10 @@ public class Customer extends Thread {
 
     @Override
     public void run() {
-        System.out.println(this + " зашел в магазин");
+        System.out.println(this + " went to store");
         int rnd = Util.rnd(500, 1500);
         Util.sleep(rnd);
-        System.out.println(this + " отправился в очередь");
+        System.out.println(this + " went to queue");
         Queeueee.add(this);
         synchronized (getMonitor()){
             try {
@@ -26,8 +26,7 @@ public class Customer extends Thread {
                 e.printStackTrace();
             }
         }
-        System.out.println(this + " вышел с магазина");
-
+        System.out.println(this + " leave store");
     }
 
     @Override

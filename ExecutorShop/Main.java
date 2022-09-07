@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class Main {
-    public static int nThreads = 4;
+    public static int N_THREADS = 4;
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        System.out.println("Магазин открылся");
 
-        ExecutorService executorCustomers = Executors.newFixedThreadPool(nThreads);
+        System.out.println("Store Open");
+
+        ExecutorService executorCustomers = Executors.newFixedThreadPool(N_THREADS);
         for (int i = 0; i < 20; i++) {
             Customer customer = new Customer(i);
             Util.sleep(Util.rnd(100,300));
@@ -18,7 +19,7 @@ public class Main {
         }
 
         Util.sleep(3000);
-        ExecutorService executorCashiers = Executors.newFixedThreadPool(nThreads);
+        ExecutorService executorCashiers = Executors.newFixedThreadPool(N_THREADS);
         List<Cashier> cashiers = new ArrayList<>();
         cashiers.add(new Cashier(1));
         cashiers.add(new Cashier(2));
@@ -31,9 +32,10 @@ public class Main {
 
         executorCustomers.shutdown();
         while (!executorCustomers.awaitTermination(1,TimeUnit.MINUTES)) {
-            System.out.println("час прошел");
+            System.out.println("one minute left");
         }
-        System.out.println("Магазин закрылся");
+
+        System.out.println("Store Close");
 
 
     }
