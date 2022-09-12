@@ -9,26 +9,24 @@ public enum Dish {
 
     private int duration;
 
-    Dish(int duration) {
-        this.duration = duration;
-    }
-
     public int getDuration() {
         return duration;
     }
 
-    public static String allDishesToString() {
-        String fish = FISH.toString();
-        String steak = STEAK.toString();
-        String soup = SOUP.toString();
-        String juice = JUICE.toString();
-        String water = WATER.toString();
-
-        return fish + " " + steak + " " + soup + " " + juice + " " + water;
+    Dish(int duration) {
+        this.duration = duration;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public static String allDishesToString() {
+        String result = "";
+
+        for (Dish dish : Dish.values()) {
+            if ("".equals(result)) {
+                result += dish.name();
+            } else {
+                result += ", " + dish.name();
+            }
+        }
+        return result;
     }
 }

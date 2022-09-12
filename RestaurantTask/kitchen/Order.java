@@ -8,24 +8,24 @@ import java.util.List;
 
 public class Order {
     private final Tablet tablet;
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public Tablet getTablet() {
+        return tablet;
+    }
+
     protected List<Dish> dishes;
+
+    protected void initDishes() throws IOException {
+        this.dishes = ConsoleHelper.getAllDishesForOrder();
+    }
 
     public Order(Tablet tablet) throws IOException {
         this.tablet = tablet;
-        this.dishes = ConsoleHelper.getAllDishesForOrder();
-
-    }
-
-    public boolean isEmpty() {
-        return dishes.isEmpty();
-    }
-
-    public int getTotalCookingTime() {
-        int result = 0;
-        for (Dish dish : dishes) {
-            result = result + dish.getDuration();
-        }
-        return result;
+        initDishes();
     }
 
     @Override
@@ -40,5 +40,17 @@ public class Order {
         result.append("] of " + tablet);
         result.append(", cooking time " + getTotalCookingTime() + "min");
         return result.toString();
+    }
+
+    public boolean isEmpty() {
+        return dishes.isEmpty();
+    }
+
+    public int getTotalCookingTime() {
+        int cookingTime = 0;
+        for (Dish dish : dishes) {
+            cookingTime += dish.getDuration();
+        }
+        return cookingTime;
     }
 }
