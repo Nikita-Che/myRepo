@@ -17,8 +17,8 @@ public class ArrayStorage {
     }
 
     public void save(Resume r) {
+        //todo compare both methods
         if (isOverSizeStorage()) return;
-
         if (isResumePresented(r)) return;
 
         storage[size] = r;
