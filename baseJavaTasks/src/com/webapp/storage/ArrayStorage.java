@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage {
+public class ArrayStorage implements Storage{
     private final int STORAGE_LIMIT = 10000;
     private final Resume[] storage = new Resume[STORAGE_LIMIT];
     private int size = 0;
@@ -18,10 +18,10 @@ public class ArrayStorage {
     }
 
     public void save(Resume r) {
-        int key = getSearchKey(r.getUuid());
+        int key = getIndex(r.getUuid());
         if (key != -1) {
             System.out.println("Такое резюме " + r.getUuid() + " Уже существует");
-        } else if (size == storage.length) {
+        } else if (size == STORAGE_LIMIT) {
             System.out.println("Массив резюме переполнен");
         } else {
             storage[size] = r;
@@ -30,7 +30,7 @@ public class ArrayStorage {
     }
 
     public void update(Resume r) {
-        int key = getSearchKey(r.getUuid());
+        int key = getIndex(r.getUuid());
         if (key == -1) {
             System.out.println("Такое резюме " + r.getUuid() + " НЕ существует");
         } else {
@@ -39,7 +39,7 @@ public class ArrayStorage {
     }
 
     public Resume get(String uuid) {
-        int key = getSearchKey(uuid);
+        int key = getIndex(uuid);
         if (key == -1) {
             System.out.println("Такое резюме " + uuid + " НЕ существует");
             return null;
@@ -48,7 +48,7 @@ public class ArrayStorage {
     }
 
     public void delete(String uuid) {
-        int key = getSearchKey(uuid);
+        int key = getIndex(uuid);
         if (key == -1) {
             System.out.println("Такое резюме " + uuid + " НЕ существует");
         } else {
@@ -69,7 +69,7 @@ public class ArrayStorage {
         return size;
     }
 
-    private int getSearchKey(String uuid) {
+    private int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
             if (storage[i].getUuid().equals(uuid)) {
                 return i;
@@ -78,3 +78,4 @@ public class ArrayStorage {
         return -1;
     }
 }
+
