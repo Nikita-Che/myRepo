@@ -1,12 +1,11 @@
 package Entity;
 
 public interface Animal {
-    void move ();
+    void bith();
+
+    void move();
 
     void fucking();
 
     void deathByHungry();
-
-
-
 }

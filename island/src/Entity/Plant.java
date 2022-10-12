@@ -1,6 +1,6 @@
 package Entity;
 
 public interface Plant {
-    void deathByHerbivore();
 
+    void deathByHerbivore();
 }

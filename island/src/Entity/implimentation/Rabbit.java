@@ -6,6 +6,11 @@ import Entity.Predator;
 
 public class Rabbit implements Herbivore {
     @Override
+    public void bith() {
+
+    }
+
+    @Override
     public void move() {
 
     }

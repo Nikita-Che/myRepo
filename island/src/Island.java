@@ -1,4 +1,5 @@
 import GameField.GameField;
+import Utils.Randomizer;
 
 public class Island {
     public static void main(String[] args) {
@@ -7,5 +8,6 @@ public class Island {
         GameField gameField = new GameField();
         gameField.initialize();
         gameField.print();
+        System.out.println(Randomizer.getRandomNumber());
     }
 }

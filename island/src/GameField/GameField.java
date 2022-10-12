@@ -1,9 +1,17 @@
 package GameField;
 
+import Entity.Animal;
+import Entity.implimentation.Volf;
 import Resourses.GameFieldResource;
 
 public class GameField {
     Cell[][] gameFields = new Cell[GameFieldResource.HEIGHT][GameFieldResource.WEIGHT];
+
+    public void addAnimal() {
+        Volf volf = new Volf();
+        volf.bith();
+
+    }
 
     public void initialize () {
         for (int i = 0; i < gameFields.length; i++) {
