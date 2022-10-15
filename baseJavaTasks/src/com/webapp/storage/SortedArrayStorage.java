@@ -5,9 +5,9 @@ import com.webapp.model.Resume;
 import java.util.Arrays;
 
 public class SortedArrayStorage extends AbstractArrayStorage{
+
     @Override
     public void insertResume(Resume r, int indexOfPosition) {
-        // TODO: 14.10.2022 Сдвиги делай при помощи System.arraycopy - это намного эффективнее работает чем сдвиг при помощи циклов
         int index = -indexOfPosition - 1;
 
         if (storage[index] != null) {
@@ -24,8 +24,7 @@ public class SortedArrayStorage extends AbstractArrayStorage{
 
     @Override
     protected int getIndex(String uuid) {
-        Resume searchKey = new Resume();
-        searchKey.setUuid(uuid);
+        Resume searchKey = new Resume(uuid);
         return Arrays.binarySearch(storage, 0, size, searchKey);
     }
 }
