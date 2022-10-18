@@ -9,18 +9,14 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class AbstractArrayStorageTest {
-    //public class AbstractArrayStorageTest {
+public abstract class AbstractArrayStorageTest {
     private final Storage storage;
-//  private final Storage storage = new SortedArrayStorage();
 
     private final String UUID_1 = "uuid1";
     private final String UUID_2 = "uuid2";
     private final String UUID_3 = "uuid3";
 
-    public AbstractArrayStorageTest(Storage storage) {
+    protected AbstractArrayStorageTest(Storage storage) {
         this.storage = storage;
     }
 
