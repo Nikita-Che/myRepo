@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.webapp.storage.AbstractArrayStorage.STORAGE_LIMIT;
 import static org.junit.Assert.*;
 
 public abstract class AbstractArrayStorageTest {
@@ -100,11 +101,8 @@ public abstract class AbstractArrayStorageTest {
 
     @Test(expected = StorageException.class)
     public void saveOverFlow() throws Exception {
-        AbstractArrayStorage abstractArrayStorage = new SortedArrayStorage();
-        int indexOfLimit = abstractArrayStorage.STORAGE_LIMIT;
-
         try {
-            for (int i = storage.size() + 1; i < indexOfLimit; i++) {
+            for (int i = storage.size() + 1; i < STORAGE_LIMIT; i++) {
                 storage.save(new Resume());
             }
         } catch (StorageException e) {
