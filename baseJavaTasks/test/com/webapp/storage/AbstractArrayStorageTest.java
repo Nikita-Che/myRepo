@@ -40,6 +40,17 @@ public abstract class AbstractArrayStorageTest {
         assertEquals(expected, storage.size());
     }
 
+    public Resume assertGet(Resume resume) {
+        Resume r = storage.get(resume.getUuid());
+
+        try {
+            assertEquals(r.getUuid(), resume.getUuid());
+        } catch (StorageException e) {
+            fail();
+        }
+        return resume;
+    }
+
     @Test
     public void size() throws Exception {
         assertSize(3);
@@ -108,17 +119,6 @@ public abstract class AbstractArrayStorageTest {
         }
         storage.save(new Resume("переполнено"));
         storage.save(new Resume("переполнено1"));
-    }
-
-    public Resume assertGet(Resume resume) {
-        Resume r = storage.get(resume.getUuid());
-
-        for (int i = 0; i < storage.size(); i++) {
-            if (r.equals(resume)) {
-                return resume;
-            }
-        }
-        return null;
     }
 
     @Test
