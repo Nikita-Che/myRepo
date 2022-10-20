@@ -77,6 +77,7 @@ public abstract class AbstractArrayStorageTest {
     public void save() throws Exception {
         storage.save(RESUME4);
         assertSize(4);
+        assertGet(RESUME4);
     }
 
     @Test(expected = ExistStorageException.class)
