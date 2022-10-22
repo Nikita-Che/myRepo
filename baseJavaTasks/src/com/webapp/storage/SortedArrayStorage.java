@@ -4,7 +4,7 @@ import com.webapp.model.Resume;
 
 import java.util.Arrays;
 
-public class SortedArrayStorage extends AbstractArrayStorage{
+public class SortedArrayStorage extends AbstractArrayStorage {
 
     @Override
     public void insertResume(Resume r, int indexOfPosition) {
@@ -15,8 +15,7 @@ public class SortedArrayStorage extends AbstractArrayStorage{
 
     @Override
     public void deleteResume(int indexOfPosition) {
-        if (size - indexOfPosition >= 0)
-            System.arraycopy(storage, indexOfPosition + 1, storage, indexOfPosition, size - indexOfPosition);
+        System.arraycopy(storage, indexOfPosition + 1, storage, indexOfPosition, size - indexOfPosition);
     }
 
     @Override
