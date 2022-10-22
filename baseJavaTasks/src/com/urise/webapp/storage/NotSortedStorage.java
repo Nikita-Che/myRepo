@@ -1,6 +1,6 @@
-package com.webapp.storage;
+package com.urise.webapp.storage;
 
-import com.webapp.model.Resume;
+import com.urise.webapp.model.Resume;
 
 public class NotSortedStorage extends ArrayStorage {
     @Override
