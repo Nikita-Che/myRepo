@@ -41,7 +41,7 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
     protected void saveResume(Resume resume) {
         if (size == STORAGE_LIMIT) {
             throw new StorageException("Массив резюме переполнен", resume.getUuid());
-        }else {
+        } else {
             insertResume(resume, getIndex(resume.getUuid()));
             size++;
         }

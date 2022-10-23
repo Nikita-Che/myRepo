@@ -1,5 +1,6 @@
 package com.urise.webapp.storage;
 
+import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
 import com.urise.webapp.model.Resume;
 import org.junit.Before;
@@ -38,13 +39,19 @@ public class ListStorageTest {
     }
 
     @Test
+    public void size() {
+        assertSize(3);
+    }
+
+    @Test(expected = NotExistStorageException.class)
     public void clear() {
         storage.clear();
         assertSize(0);
+        assertGet(RESUME_1);
     }
 
     @Test
-    public void get() {
+    public void getResume() {
         assertGet(RESUME_1);
         assertGet(RESUME_2);
         assertGet(RESUME_3);
@@ -53,25 +60,6 @@ public class ListStorageTest {
     @Test(expected = NotExistStorageException.class)
     public void getNotExist() throws Exception {
         storage.get(UUID_NOT_EXIST);
-    }
-
-    @Test
-    public void save() {
-        storage.save(RESUME_4);
-        assertSize(4);
-        assertGet(RESUME_4);
-    }
-
-    @Test(expected = NotExistStorageException.class)
-    public void delete() {
-        storage.delete(UUID_1);
-        assertSize(2);
-        storage.get(UUID_1);
-    }
-
-    @Test(expected = NotExistStorageException.class)
-    public void deleteNotExist() throws Exception {
-        storage.delete(UUID_NOT_EXIST);
     }
 
     @Test
@@ -95,7 +83,26 @@ public class ListStorageTest {
     }
 
     @Test
-    public void size() {
-        assertSize(3);
+    public void save() {
+        storage.save(RESUME_4);
+        assertSize(4);
+        assertGet(RESUME_4);
+    }
+
+    @Test(expected = ExistStorageException.class)
+    public void saveExist() {
+        storage.save(RESUME_2);
+    }
+
+    @Test(expected = NotExistStorageException.class)
+    public void deleteResume() {
+        storage.delete(UUID_1);
+        assertSize(2);
+        storage.get(UUID_1);
+    }
+
+    @Test(expected = NotExistStorageException.class)
+    public void deleteNotExist() throws Exception {
+        storage.delete(UUID_NOT_EXIST);
     }
 }

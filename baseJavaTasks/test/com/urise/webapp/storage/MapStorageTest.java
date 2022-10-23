@@ -48,6 +48,13 @@ public class MapStorageTest {
     }
 
     @Test
+    public void getResume() {
+        assertGet(RESUME_1);
+        assertGet(RESUME_2);
+        assertGet(RESUME_3);
+    }
+
+    @Test
     public void getAll() {
         Resume[] expected = new Resume[]{RESUME_2, RESUME_1, RESUME_3}; // Проверить заполнение. Если первым в массив складывать R1 то тест не проходит
         assertSize(3);
@@ -75,15 +82,8 @@ public class MapStorageTest {
     }
 
     @Test
-    public void getIndex() {  //проверить на 1 2 3 поменяв getIndex в ListStorage
+    public void getIndex() {
         int mapStorageIndex = 0;
         assertEquals(0, mapStorageIndex);
-    }
-
-    @Test
-    public void getResume() {
-        assertGet(RESUME_1);
-        assertGet(RESUME_2);
-        assertGet(RESUME_3);
     }
 }
