@@ -26,29 +26,37 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    protected Resume getResume(String uuid) {
+    protected Resume doGet(String uuid) {
         return storage.get(getIndex(uuid));
     }
 
     @Override
-    protected void updateResume(Resume resume) {
+    protected void doUpdate(Resume resume) {
         storage.set(getIndex(resume.getUuid()), resume);
     }
 
     @Override
-    protected void saveResume(Resume resume) {
+    protected void doSave(Resume resume) {
         storage.add(resume);
     }
 
     @Override
-    protected void deleteResume(String uuid) {
+    protected void doDelete(String uuid) {
         storage.remove(getIndex(uuid));
     }
 
-    @Override
     protected int getIndex(String uuid) {
-        //переделать в цикл indexOf здесь не прокатит, так как он ищет именно эквивалентный объект, а при апдейте он будет тем же по uuid, но не будет эквивалентным, поэтому здесь только циклом искать
+        //переделать в цикл indexOf здесь не прокатит, так как он ищет именно эквивалентный объект,
+        // а при апдейте он будет тем же по uuid, но не будет эквивалентным, поэтому здесь только циклом искать
         Resume resume = new Resume(uuid);
         return storage.indexOf(resume);
+    }
+
+    @Override
+    protected boolean getSearchKey(String uuid) {
+        if (getIndex(uuid) < 0) {
+            return false;
+        }
+        return true;
     }
 }
