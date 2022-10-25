@@ -47,6 +47,10 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     protected int getIndex(String uuid) {
+        //поиск по ключу
+        //Здесь всё таки нужно использовать searchKey, подумай
+        // как это должно выглядеть с учётом правок в
+        // AbstractStorage
         return 0;
     }
 }

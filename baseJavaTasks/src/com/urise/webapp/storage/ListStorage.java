@@ -47,6 +47,7 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     protected int getIndex(String uuid) {
+        //переделать в цикл indexOf здесь не прокатит, так как он ищет именно эквивалентный объект, а при апдейте он будет тем же по uuid, но не будет эквивалентным, поэтому здесь только циклом искать
         Resume resume = new Resume(uuid);
         return storage.indexOf(resume);
     }
