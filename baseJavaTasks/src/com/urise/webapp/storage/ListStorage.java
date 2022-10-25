@@ -42,14 +42,18 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     protected void doDelete(String uuid) {
-        storage.remove(getIndex(uuid));
+        storage.remove(new Resume(uuid));
     }
 
     protected int getIndex(String uuid) {
-        //переделать в цикл indexOf здесь не прокатит, так как он ищет именно эквивалентный объект,
-        // а при апдейте он будет тем же по uuid, но не будет эквивалентным, поэтому здесь только циклом искать
-        Resume resume = new Resume(uuid);
-        return storage.indexOf(resume);
+        int index = 0;
+        for (Resume resume : storage) {
+            if (resume.getUuid().equals(uuid)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 
     @Override

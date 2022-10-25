@@ -46,17 +46,17 @@ public class MapStorage extends AbstractStorage {
     }
 
     protected int getIndex(String uuid) {
-        //поиск по ключу
-        //Здесь всё таки нужно использовать searchKey, подумай
-        // как это должно выглядеть с учётом правок в
-        // AbstractStorage
-        return 1;
+        for (String uuid1 : storage.keySet()) {
+            if (uuid1.equals(uuid)) {
+                return 1;
+            }
+        }
+        return -1;
     }
 
     @Override
     protected boolean getSearchKey(String uuid) {
-        if(getIndex(uuid)!=0){ //переделать логику
-                               //после переделки getIndex
+        if (getIndex(uuid) <= 0) {
             return false;
         }
         return true;

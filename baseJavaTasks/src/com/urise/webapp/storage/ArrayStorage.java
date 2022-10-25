@@ -29,7 +29,7 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     @Override
     protected boolean getSearchKey(String uuid) {
-        if(getIndex(uuid)<0){
+        if (getIndex(uuid) < 0) {
             return false;
         }
         return true;
