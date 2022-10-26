@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32012366-0dd4-4fcb-849a-200b6c456f11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/me/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/me/exception/DivisionByZeroException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/me/exception/NotNumberException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/me/exception/OverLoadException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/me/exception/WrongSignException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseJavaTasks/out/production/baseJavaTasks/com/webapp/MainArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseJavaTasks/out/production/baseJavaTasks/com/webapp/MainTestArrayStorage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseJavaTasks/out/production/baseJavaTasks/com/webapp/model/Resume.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseJavaTasks/out/production/baseJavaTasks/com/webapp/storage/ArrayStorage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baseJavaTasks/out/production/baseJavaTasks/com/webapp/storage/Storage.class" beforeDir="false" />
+    <list default="true" id="32012366-0dd4-4fcb-849a-200b6c456f11" name="Changes" comment="test push">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/me/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/me/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/me/Calculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -44,8 +38,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
   </component>
-  <component name="RunManager" selected="JUnit.AppTest">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.me" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CalculatorTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.me.App" />
       <module name="simple console Calc2" />
@@ -74,8 +78,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="simple console Calc2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.me.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.me" />
+      <option name="MAIN_CLASS_NAME" value="com.me.CalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CalculatorTest" />
         <item itemvalue="JUnit.AppTest" />
         <item itemvalue="Application.App" />
       </list>
@@ -89,8 +109,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666760889206</updated>
-      <workItem from="1666760890545" duration="2544000" />
+      <workItem from="1666760890545" duration="5268000" />
     </task>
+    <task id="LOCAL-00001" summary="interface and methods">
+      <created>1666764570806</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666764570806</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1666764670521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666764670521</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test push">
+      <created>1666764780388</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666764780388</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,5 +148,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="interface and methods" />
+    <MESSAGE value="1" />
+    <MESSAGE value="test push" />
+    <option name="LAST_COMMIT_MESSAGE" value="test push" />
   </component>
 </project>
