@@ -58,6 +58,9 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     protected boolean getSearchKey(String uuid) {
-        return getIndex(uuid) >= 0;
+        if (getIndex(uuid) < 0) {
+            return false;
+        }
+        return true;
     }
 }
