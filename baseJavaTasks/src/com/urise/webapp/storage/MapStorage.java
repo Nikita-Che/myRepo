@@ -45,6 +45,8 @@ public class MapStorage extends AbstractStorage {
 //        String[] strings = storage.keySet().toArray(new String[0]);
 //        return new Resume(strings[(int) searchKey]);
 
+        //перекинуть лист ключей в колеккцию, отсортировать, найти обратно по стрингу нужну
+
         return storage.get(searchKey);
     }
 
@@ -61,17 +63,24 @@ public class MapStorage extends AbstractStorage {
     @Override
     protected void doDelete(Object searchKey) {
         //я не могу получить значение по индексу. я могу получить значение по KEY а searchKey это индекс элемента
-        storage.remove((Integer) searchKey);
+        storage.remove(searchKey);
     }
 
     @Override
     protected Object getSearchKey(String uuid) {
-        int index = 0;
+//        int index = 0;
+//        for (String uuid1 : storage.keySet()) {
+//            if (uuid1.equals(uuid)) {
+//                return index;
+//            }
+//            index++;
+//        }
+//        return -1;
+
         for (String uuid1 : storage.keySet()) {
             if (uuid1.equals(uuid)) {
-                return index;
+                return 1;
             }
-            index++;
         }
         return -1;
     }
