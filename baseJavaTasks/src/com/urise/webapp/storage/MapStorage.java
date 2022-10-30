@@ -20,54 +20,37 @@ public class MapStorage extends AbstractStorage {
 
     @Override
     public Resume[] getAll() {
-        Resume[] resumes = new Resume[storage.size()];
-        resumes = storage.values().toArray(resumes);
-        return resumes;
+        return storage.values().toArray(new Resume[0]);
     }
 
     @Override
     protected Resume doGet(Object searchKey) {
-        return storage.get(searchKey);
+        return storage.get((String) searchKey);
     }
 
     @Override
     protected void doUpdate(Resume resume, Object searchKey) {
-        storage.computeIfPresent(resume.getUuid(), (key, value) -> value = resume);
+        storage.put((String) searchKey, resume);
     }
 
     @Override
     protected void doSave(Resume resume, Object searchKey) {
-        storage.putIfAbsent(resume.getUuid(), resume);
+        storage.put(resume.getUuid(), resume);
     }
 
     @Override
     protected void doDelete(Object searchKey) {
-
-        storage.remove(searchKey);
+        storage.remove((String) searchKey);
     }
 
     @Override
     protected Object getSearchKey(String uuid) {
-        int index = 0;
-        for (String uuid1 : storage.keySet()) {
-            if (uuid1.equals(uuid)) {
-                return index;
-            }
-            index++;
-        }
-        return -1;
-
-//        for (String uuid1 : storage.keySet()) {
-//            if (uuid1.equals(uuid)) {
-//                return 1;
-//            }
-//        }
-//        return -1;
+        return uuid;
     }
 
     @Override
     protected boolean isExit(Object searchKey) {
-        if ((int) searchKey <= 0) {
+        if (!storage.containsKey((String) searchKey)) {
             return false;
         }
         return true;

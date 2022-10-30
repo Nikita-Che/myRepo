@@ -35,8 +35,7 @@ public class MapStorageTest {
     }
 
     private void assertGet(Resume resume) {
-        Resume r = storage.get(resume.getUuid()); //вот тут r = null
-//        Resume r1 = new Resume(resume.getUuid());
+        Resume r = storage.get(resume.getUuid());
         assertEquals(r.getUuid(), resume.getUuid());
     }
 
