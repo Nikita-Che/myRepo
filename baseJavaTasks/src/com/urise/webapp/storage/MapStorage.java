@@ -2,11 +2,11 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MapStorage extends AbstractStorage {
-    private final Map<String, Resume> storage = new HashMap<>();
+    private final Map<String, Resume> storage = new LinkedHashMap<>();
 
     @Override
     public int size() {
