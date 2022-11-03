@@ -18,6 +18,9 @@ import static com.urise.webapp.storage.AbstractArrayStorage.STORAGE_LIMIT;
         ListStorageTest.class,
         MapStorageTest.class,
 })
+abstract class allTests{
+}
+
 public abstract class AbstractStorageTest {
     private final Storage storage;
 

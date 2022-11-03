@@ -2,13 +2,13 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 // TODO: 03.11.2022 implement 
 // TODO: 03.11.2022 create new MapStorage with searchkey not uuid 
 public class MapStorage extends AbstractStorage {
-    private final Map<String, Resume> storage = new LinkedHashMap<>();
+    private final Map<String, Resume> storage = new HashMap<>();
 
     @Override
     public int size() {
