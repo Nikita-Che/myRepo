@@ -101,7 +101,8 @@ public abstract class AbstractStorageTest {
         storage.save(RESUME_2);
     }
 
-    @Test(expected = StorageException.class, timeout = 500)
+    // TODO: 03.11.2022 исключить тест из листа и мапы
+    @Test(expected = StorageException.class)
     public void saveOverFlow() throws Exception {
         try {
             for (int i = storage.size(); i < STORAGE_LIMIT; i++) {
