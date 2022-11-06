@@ -2,13 +2,10 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO: 03.11.2022 implement 
-// TODO: 03.11.2022 create new MapStorage with searchkey not uuid 
 public class MapStorage extends AbstractStorage {
     private final Map<String, Resume> storage = new HashMap<>();
 
@@ -23,14 +20,13 @@ public class MapStorage extends AbstractStorage {
     }
 
     @Override
-    public List<Resume> getAllSorted() {
-        List<String>  list = new ArrayList<>(storage.keySet());
-        List<Resume> list1 = new ArrayList<>();
-        for (String s : list) {
-            list1.add(new Resume(s));
+    protected List<Resume> getListOfAllResumeInStorage() {
+        List list = (List) storage.keySet();
+        List<Resume> resumes = null;
+        for (Object o : list) {
+            resumes.add((Resume) o);
         }
-        list1.sort(Resume.comparator);
-        return list1;
+        return resumes;
     }
 
     @Override
