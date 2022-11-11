@@ -1,6 +1,5 @@
 package com.urise.webapp.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -14,34 +13,27 @@ public class Resume {
     // Unique identifier
     private final String uuid;
     private final String fullName;
-    private TextSection textSection;
 
-    public void printAll() {
-        List<String> list = new ArrayList<>();
-        list.add(uuid);
-        list.add(fullName);
-        list.add(String.valueOf(textSection));
-        System.out.println(list);
+    List<Section> section;
+
+    public List<Section> getSection() {
+        return section;
     }
 
-    public TextSection getTextSection() {
-        return textSection;
+    public void setSection(List<Section> section) {
+        this.section = section;
     }
 
-    public void setTextSection(TextSection textSection) {
-        this.textSection = textSection;
-    }
-    // TODO: 08.11.2022 надо добавлять сюда начинать все по ДЗ
-
-    public Resume(String fullName) {
-        this(UUID.randomUUID().toString(), fullName);
+    public Resume(String fullName, List<Section> section) {
+        this(UUID.randomUUID().toString(), fullName, section);
     }
 
-    public Resume(String uuid, String fullName) {
+    public Resume(String uuid, String fullName, List<Section> section) {
         Objects.requireNonNull(uuid, "uuid must not be null");
         Objects.requireNonNull(fullName, "fullName must not be null");
         this.uuid = uuid;
         this.fullName = fullName;
+        this.section = section;
     }
 
     public String getUuid() {
@@ -75,10 +67,11 @@ public class Resume {
         return "Resume{" +
                 "uuid='" + uuid + '\'' +
                 ", fullName='" + fullName + '\'' +
+                ", section=" + section +
                 '}';
     }
 
-//    @Override
+    //    @Override
 //    public int compareTo(Resume o) {
 //        int cmp = fullName.compareTo(o.fullName);
 //        return cmp!=0? cmp:uuid.compareTo(o.uuid);
