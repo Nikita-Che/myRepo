@@ -1,6 +1,7 @@
 package com.urise.webapp.model;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -8,32 +9,23 @@ import java.util.UUID;
  * Initial resume class
  */
 public class Resume {
-//        implements Comparable<Resume{
-
+    //        implements Comparable<Resume{
     // Unique identifier
     private final String uuid;
     private final String fullName;
 
-    List<Section> section;
+    List<String> contacts;
+    Map<SectionType, AbstractSection> sections;
 
-    public List<Section> getSection() {
-        return section;
+    public Resume(String fullName) {
+        this(UUID.randomUUID().toString(), fullName);
     }
 
-    public void setSection(List<Section> section) {
-        this.section = section;
-    }
-
-    public Resume(String fullName, List<Section> section) {
-        this(UUID.randomUUID().toString(), fullName, section);
-    }
-
-    public Resume(String uuid, String fullName, List<Section> section) {
+    public Resume(String uuid, String fullName) {
         Objects.requireNonNull(uuid, "uuid must not be null");
         Objects.requireNonNull(fullName, "fullName must not be null");
         this.uuid = uuid;
         this.fullName = fullName;
-        this.section = section;
     }
 
     public String getUuid() {
@@ -67,7 +59,8 @@ public class Resume {
         return "Resume{" +
                 "uuid='" + uuid + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", section=" + section +
+                ", contacts=" + contacts +
+                ", sections=" + sections +
                 '}';
     }
 
