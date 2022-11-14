@@ -1,16 +1,22 @@
 package com.urise.webapp.model;
 
-public class TextSection extends Sections {
-    String string;
+import java.util.List;
 
-    public void setString(String string) {
-        this.string = string;
+public class TextSection extends Sections { //ACHIEVEMENT, QUALIFICATIONS, PERSONAL, OBJECTIVE
+    List<String> textDescription;
+
+    public List<String> getTextDescription() {
+        return textDescription;
+    }
+
+    public void setTextDescription(List<String> textDescription) {
+        this.textDescription = textDescription;
     }
 
     @Override
     public String toString() {
         return "TextSection{" +
-                "string='" + string + '\'' +
+                "textDescription=" + textDescription +
                 '}';
     }
 }
