@@ -21,42 +21,39 @@ public class ResumeTestData {
         contacts.put(ContactsType.LINKEINPROFILE, "VasyaLinkedin");
         contacts.put(ContactsType.STACKOVEGLOWPROFILE, "Vasya Stack");
 
-        Map<SectionType, Sections> sectionsWorker = new HashMap<>();
+        Map<SectionType, AbstractSection> sectionsWorker = new HashMap<>();
 
         TextSection pers = new TextSection();
         List<String> personal = new ArrayList<>();
         personal.add("персональные качества");
-        pers.setTextDescription(personal);
+        //
         sectionsWorker.put(SectionType.PERSONAL, pers);
 
         TextSection obj = new TextSection();
         List<String> objective = new ArrayList<>();
         objective.add("позиция");
-        obj.setTextDescription(objective);
+        //
         sectionsWorker.put(SectionType.OBJECTIVE, obj);
 
 
         TextSection ach = new TextSection();
         List<String> achivement = new ArrayList<>();
         achivement.add("достижения");
-        ach.setTextDescription(achivement);
+        //
         sectionsWorker.put(SectionType.ACHIEVEMENT, ach);
 
         TextSection qua = new TextSection();
         List<String> qualify = new ArrayList<>();
         qualify.add("квалификация");
-        qua.setTextDescription(qualify);
+        //
         sectionsWorker.put(SectionType.QUALIFICATIONS, qua);
 
         OrganizationSection edu = new OrganizationSection();
-        edu.setNameOfuniversity("Универ");
-        edu.setCource("4");
+        //
         sectionsWorker.put(SectionType.EDUCATION, edu);
 
         OrganizationSection ex = new OrganizationSection();
-        ex.setNameOfOrganiation("РаботаРадиРаботы");
-        ex.setPossition("Работник");
-        ex.setResponsibilities("РаботатьРадиРаботы");
+        //
         sectionsWorker.put(SectionType.EXPERIENCE, ex);
 
 
