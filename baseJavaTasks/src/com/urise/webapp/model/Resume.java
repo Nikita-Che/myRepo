@@ -14,13 +14,13 @@ public class Resume {
     private final String fullName;
 
     Map<ContactsType, String> contacts;
-    Map<SectionType, Sections> sections;
+    Map<SectionType, AbstractSection> sections;
 
     public Map<ContactsType, String> getContacts() {
         return contacts;
     }
 
-    public Map<SectionType, Sections> getSections() {
+    public Map<SectionType, AbstractSection> getSections() {
         return sections;
     }
 
@@ -28,7 +28,7 @@ public class Resume {
         this.contacts = contacts;
     }
 
-    public void setSections(Map<SectionType, Sections> sections) {
+    public void setSections(Map<SectionType, AbstractSection> sections) {
         this.sections = sections;
     }
 

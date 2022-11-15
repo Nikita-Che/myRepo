@@ -1,8 +1,9 @@
 package com.urise.webapp.model;
 
-public class Sections {
+public class AbstractSection {
     OrganizationSection organizationSection;
     TextSection textSection;
+    ListSection listSection;
 
     public OrganizationSection getOrganizationSection() {
         return organizationSection;
@@ -20,11 +21,20 @@ public class Sections {
         this.textSection = textSection;
     }
 
+    public ListSection getListSection() {
+        return listSection;
+    }
+
+    public void setListSection(ListSection listSection) {
+        this.listSection = listSection;
+    }
+
     @Override
     public String toString() {
-        return "Sections{" +
+        return "AbstractSection{" +
                 "organizationSection=" + organizationSection +
                 ", textSection=" + textSection +
+                ", listSection=" + listSection +
                 '}';
     }
 }
