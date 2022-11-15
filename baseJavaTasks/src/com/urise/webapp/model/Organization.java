@@ -1,18 +1,47 @@
 package com.urise.webapp.model;
 
 import java.net.URL;
-import java.time.Period;
-import java.util.Date;
+import java.util.List;
 
 public class Organization {
-    String nameOfOrganization;
-    URL homePage;
+    String name;
+    URL website;
+    List<Period> periods;
 
-    String position;
-    String responsibilities;
+    public Organization(String name, URL website, List<Period> periods) {
+        this.name = name;
+        this.website = website;
+        this.periods = periods;
+    }
 
-    Date start;
-    Date end;
+    public String getName() {
+        return name;
+    }
 
-    Period period;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public URL getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(URL website) {
+        this.website = website;
+    }
+
+    public List<Period> getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(List<Period> periods) {
+        this.periods = periods;
+    }
+
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

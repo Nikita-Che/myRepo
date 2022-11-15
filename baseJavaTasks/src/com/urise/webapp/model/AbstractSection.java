@@ -5,6 +5,15 @@ public class AbstractSection {
     TextSection textSection;
     ListSection listSection;
 
+    public AbstractSection(OrganizationSection organizationSection, TextSection textSection, ListSection listSection) {
+        this.organizationSection = organizationSection;
+        this.textSection = textSection;
+        this.listSection = listSection;
+    }
+
+    public AbstractSection() {
+    }
+
     public OrganizationSection getOrganizationSection() {
         return organizationSection;
     }
@@ -27,14 +36,5 @@ public class AbstractSection {
 
     public void setListSection(ListSection listSection) {
         this.listSection = listSection;
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractSection{" +
-                "organizationSection=" + organizationSection +
-                ", textSection=" + textSection +
-                ", listSection=" + listSection +
-                '}';
     }
 }

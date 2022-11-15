@@ -5,6 +5,10 @@ import java.util.List;
 public class ListSection extends AbstractSection { //ACHIEVEMENT, QUALIFICATIONS,
     List<String> strings;
 
+    public ListSection(List<String> strings) {
+        this.strings = strings;
+    }
+
     public List<String> getStrings() {
         return strings;
     }
