@@ -20,21 +20,26 @@ public class MainFile {
         for (String name : Objects.requireNonNull(dir.list())) {
             System.out.println(name);
         }
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(filePath);
+//        FileInputStream fis = null;
+//        try {
+//            fis = new FileInputStream(filePath);
+//            System.out.println(fis.read());
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        } finally {
+//            if (fis != null) {
+//                try {
+//                    fis.close();
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        }
+
+        try (FileInputStream fis = new FileInputStream(filePath)) {
             System.out.println(fis.read());
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } finally {
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
-
     }
 }
