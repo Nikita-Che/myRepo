@@ -20,26 +20,32 @@ public class MainFile {
         for (String name : Objects.requireNonNull(dir.list())) {
             System.out.println(name);
         }
-//        FileInputStream fis = null;
-//        try {
-//            fis = new FileInputStream(filePath);
-//            System.out.println(fis.read());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        } finally {
-//            if (fis != null) {
-//                try {
-//                    fis.close();
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//        }
 
         try (FileInputStream fis = new FileInputStream(filePath)) {
             System.out.println(fis.read());
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+
+//Сделайте рекурсивный обход и вывод имени файлов в каталогах и подкаталогах (корневой каталог- ваш проект)
+        String path = "C:\\Users\\nikita\\Desktop\\GitHub\\basejava\\src";
+        list(path);
+    }
+
+    static void list(String path) {
+        File dir = new File(path);
+        String[] sDirList = dir.list();
+        int i;
+        for (i = 0; i < sDirList.length; i++) {
+            File f1 = new File(path +
+                    File.separator + sDirList[i]);
+            if (f1.isFile())
+                System.out.println(path +
+                        File.separator + sDirList[i]);
+            else {
+                list(path +
+                        File.separator + sDirList[i]);
+            }
         }
     }
 }

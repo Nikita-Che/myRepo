@@ -5,6 +5,7 @@ import com.urise.webapp.model.Resume;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,7 +30,7 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
         return null;
     }
 
-    protected abstract void doRead(File file);
+    protected abstract Resume doRead(File file);
 
     @Override
     protected void doUpdate(Resume resume, File file) {
@@ -54,7 +55,7 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
 
     @Override
     protected void doDelete(File file) {
-//        удаляет файл
+        file.delete();
     }
 
     @Override
@@ -69,20 +70,27 @@ public abstract class AbstractFileStorage extends AbstractStorage<File> {
 
     @Override
     protected List<Resume> doCopyAll() {
-        //читает все файлы из каталога делает им doRead и возвращает список
-        directory.list(); // возвращает список имен (массив String ) содержащихся в нем файлов 
-        return null;
+        File[] files = directory.listFiles();
+        List<Resume> list = new ArrayList<>();
+        for (File file : files) {
+            list.add(doRead(file));
+        }
+        return list;
     }
 
     @Override
     public void clear() {
-        //удалить все файлы из directory. Сначала получить их все и удалить потом
-
+//        directory.delete();
+        File[] files = directory.listFiles();
+        for (File file : files) {
+            file.delete();
+        }
     }
 
     @Override
     public int size() {
-        //посчитать количество файлов в каталоге
-        return 0;
+//        File[] files = directory.listFiles();
+        String[] list = directory.list();
+        return list.length;
     }
 }
