@@ -15,4 +15,5 @@ import org.junit.platform.suite.api.Suite;
                 ObjectStreamPathStorageTest.class
         })
 public class AllStorageTests {
+
 }
